@@ -14,7 +14,7 @@
             
                $c = $_GET["cor2"];
                echo "<font color = $c><strong>DADOS REGISTRADO OBRIGADO!</strong></font>";
-           // Echo "Obrigado por participar <font-color = $p2>$n</font> de <font-color = $p>$c</font>";
+           // Echo "Obrigado! <font-color = $p2>$n</font> de <font-color = $p>$c</font>";
    
 
 
