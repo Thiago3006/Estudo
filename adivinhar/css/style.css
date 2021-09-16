@@ -1,0 +1,56 @@
+
+*{
+    margin:0;
+}
+.center {
+    width: 100%;
+    text-align: center;
+   
+    
+   
+}
+
+input{
+    border-radius: 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button {    
+    border-radius: 8px;   
+    border: 10px;
+    padding: 2px;
+    background-color: #ee0f0f;
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+#ajuda {    
+    width: 35px;  
+    font-weight:  750;
+    position: absolute;    
+    right: 0;
+    top:0;
+    padding:3px;
+    background-color: rgb(30, 142, 161);
+    font-size: 0.5rem;
+    text-decoration: none;
+  
+}
+#ajuda:active{
+    background-color: blueviolet;
+}
+button:active {
+    background-color: greenyellow;
+}
+ h1 {
+     font-family: Georgia, 'Times New Roman', Times, serif;
+ }
+
+img{
+    background-color: black;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
