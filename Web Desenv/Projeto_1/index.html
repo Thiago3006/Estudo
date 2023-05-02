@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+</head>
+<body>
+    <h1 class = "um">INFORME OS DADOS</h1>
+    <div>        
+        <form method="get" action="dados.php">
+           <table>
+                <tr>
+                    <td>Nome completo:</td>
+                    <td><input type = "nome" name = "nom" id = "name"></td>
+                </tr>
+                <tr>
+                    <td>Sexo :</td>
+                    <td><input type="radio" name="sexo" value="Feminino" /> 
+                    Feminino
+                    <input type = "radio" name="sexo" value="Masculino"/>
+                    Masculino</td>
+                </tr>
+                
+                <tr>
+                    <td>Cidade:</td>
+                    <td><input type = "cidade" name = "cit" id = "city"/></td>
+                </tr>
+                                  
+                
+            </table>
+            Escolha uma cor: <input type = "color" name="cor" list = "cor"/>
+            <button >Confirmar</button>
+        </form>    
+    </div>    
+</body>
+</html>
