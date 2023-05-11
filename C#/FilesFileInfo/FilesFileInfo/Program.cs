@@ -6,12 +6,12 @@ namespace FilesFileInfo
     {
         static void Main(string[] args)
         {
-            string sourcePath = @"C:\Users\thiag\OneDrive\Documentos\curso c#\course.txt";
-            string targetPath = @"C:\Users\thiag\OneDrive\Documentos\curso c#\course2.txt";
+            //string sourcePath = @"C:\Users\thiag\OneDrive\Documentos\curso c#\course.txt";
+            //string targetPath = @"C:\Users\thiag\OneDrive\Documentos\curso c#\course2.txt";
             //FileStream fs = null;
-            StreamReader sr = null;
+            //StreamReader sr = null;
 
-            try
+            /*try
             {
                 //FileInfo fileInfo = new FileInfo(sourcePath);
                 //fileInfo.CopyTo(targetPath);
@@ -32,8 +32,8 @@ namespace FilesFileInfo
                     Console.WriteLine(line);
                 }
                 
-                /* pode ser feito desta maneira?                
-                Console.WriteLine(sr.ReadToEnd()); */
+                ///pode ser feito desta maneira?                
+                //Console.WriteLine(sr.ReadToEnd()); 
 
 
             }
@@ -47,7 +47,38 @@ namespace FilesFileInfo
             {
                 if (sr != null) sr.Close();
                 //if (fs != null) fs.Close();
+            }*/
+
+            // ----BLOCO USING----
+
+            /*string path = @"C:\Users\thiag\OneDrive\Documentos\curso c#\course.txt";
+
+            try
+            {
+
+                //using (FileStream fs = new FileStream(path, FileMode.Open))
+                // instanciando de forma resumida, neste caso não precisa da linha acima e das chaves
+
+                using (StreamReader sr = File.OpenText(path))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        Console.WriteLine(sr.ReadLine());
+                    }
+                }
+                
             }
+            catch(IOException e)
+            {
+                Console.WriteLine("Um erro ocorreu: " + e.Message);
+            }*/
+
+
+
+            //----STREMWRITER------
+
+
         }
+
     }
 }
