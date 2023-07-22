@@ -1,0 +1,5 @@
+D:\Dev\C#\CarRent\CarRent\obj\Debug\net6.0\CarRent.csproj.AssemblyReference.cache
+D:\Dev\C#\CarRent\CarRent\obj\Debug\net6.0\CarRent.GeneratedMSBuildEditorConfig.editorconfig
+D:\Dev\C#\CarRent\CarRent\obj\Debug\net6.0\CarRent.AssemblyInfoInputs.cache
+D:\Dev\C#\CarRent\CarRent\obj\Debug\net6.0\CarRent.AssemblyInfo.cs
+D:\Dev\C#\CarRent\CarRent\obj\Debug\net6.0\CarRent.csproj.CoreCompileInputs.cache
