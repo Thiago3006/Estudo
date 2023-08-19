@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dev\\C#\\CarRent\\CarRent\\CarRent.csproj",
+      "projectUniqueName": "D:\\Dev\\MyStudy\\C#\\CarRent\\CarRent\\CarRent.csproj",
       "projectName": "CarRent",
-      "projectPath": "D:\\Dev\\C#\\CarRent\\CarRent\\CarRent.csproj",
+      "projectPath": "D:\\Dev\\MyStudy\\C#\\CarRent\\CarRent\\CarRent.csproj",
       "packagesPath": "C:\\Users\\thiag\\.nuget\\packages\\",
-      "outputPath": "D:\\Dev\\C#\\CarRent\\CarRent\\obj\\",
+      "outputPath": "D:\\Dev\\MyStudy\\C#\\CarRent\\CarRent\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\thiag\\AppData\\Roaming\\NuGet\\NuGet.Config",

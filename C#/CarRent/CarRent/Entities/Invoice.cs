@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace CarRent.Entitites
+namespace CarRent.Entities
 {
     internal class Invoice
     {
@@ -13,11 +13,11 @@ namespace CarRent.Entitites
         public double Tax { get; set; }
         public double TotalPayment { get; set; }
 
-        public Invoice (double basicPayment, double tax, double totalPayment)
+        public Invoice (double basicPayment, double tax)
         {
             BasicPayment = basicPayment;
             Tax = tax;
-            TotalPayment = totalPayment;
+            TotalPayment = basicPayment + tax;
         }
 
         public override string ToString()

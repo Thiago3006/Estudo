@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRent.Entitites
+namespace CarRent.Entities
 {
     internal class Vehicle
     {
