@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ContratosProcess.Entities
 {
-    internal class contract
+    internal class Contract
     {
         public int ContractNumber { get; set; }
         public DateTime Date { get; set; }
@@ -14,7 +14,7 @@ namespace ContratosProcess.Entities
         public List<Installments> Parts { get; set; }
 
 
-        public contract (int contractnumber, DateTime date, double value)
+        public Contract (int contractnumber, DateTime date, double value)
         {
             ContractNumber = contractnumber;
             Date = date;
@@ -22,9 +22,9 @@ namespace ContratosProcess.Entities
             Parts = new List<Installments>();
         }
 
-        public void AddInstallment(Installments installments)
+        public void AddInstallment(Installments parts)
         {
-
+            Parts.Add(parts);
         }
     }
 }
