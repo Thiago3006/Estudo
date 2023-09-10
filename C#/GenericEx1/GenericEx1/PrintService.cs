@@ -1,14 +1,19 @@
 ﻿using System;
 namespace GenericEx1
 {
-    internal class PrintService
+    ///<summary>
+    ///Usando Type Safety, o tipo de uma variável deve ser declarado
+    ///durante a fase de compilação do programa, garantindo assim a
+    ///consistência e segurança dos tipos de dados durante a execução."
+    ///</summary>
+    internal class PrintService<T>
     {
-        private int[] _values = new int[10];
+        private T[] _values = new T[10];
         private int _count = 0;
 
-        public void AddValue(int value)
+        public void AddValue(T value)
         {
-            if(_count == 10)
+            if (_count == 10)
             {
                 throw new InvalidOperationException("PrintService is full");
             }
@@ -16,9 +21,9 @@ namespace GenericEx1
             _count++;
         }
 
-        public int First()
+        public T First()
         {
-            if(_count == 0)
+            if (_count == 0)
             {
                 throw new InvalidOperationException("PrintService is empty");
             }
