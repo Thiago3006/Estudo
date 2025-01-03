@@ -3,7 +3,7 @@
 namespace ProductAPI.Controllers
 {
     [ApiController]
-    [Route("api/demo")]
+    [Route("api/product")]
     public class ProductController : ControllerBase
     {
         [HttpGet]
