@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProductAPI.Models;
 
 namespace ProductAPI.Controllers
 {
