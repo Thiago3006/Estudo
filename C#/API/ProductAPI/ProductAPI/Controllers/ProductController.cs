@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProductAPI.Data;
 using ProductAPI.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ProductAPI.Controllers
 {
@@ -7,46 +10,69 @@ namespace ProductAPI.Controllers
     [Route("api/product")]
     public class ProductController : ControllerBase
     {
+
+        private readonly ProductApiDbContext _context;
+        public ProductController(ProductApiDbContext context) {
+            _context = context;
+        }
+
         [HttpGet]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
-        public IActionResult Get()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
-            return Ok(new Product { Id = 1, Name = "Paçoca" });
+            return await _context.Products.ToListAsync();
         }
 
         [HttpGet("{id:int}")]
-        [ProducesResponseType(typeof(Product), StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Get(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]        
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return Ok(new Product { Id = id, Name = "Paçoca" });
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return product;
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Product),StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Post(Product product)
+        public async Task<ActionResult<Product>> PostProduct(Product product)
         {
-            return CreatedAtAction("Get", new { id = product.Id }, product);
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Put(int id, Product product)
+        public async Task<IActionResult> PutProduct(int id, Product product)
         {
-            if (id != product.Id) return BadRequest();
+            if (id != product.Id)
+            {
+                return BadRequest();
+            }
+            //_context.Entry(product).State = EntityState.Modified;
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
             return NoContent();
         }
 
         [HttpDelete("{id:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesDefaultResponseType]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            if (id == 0) return NotFound();
+            var product = await _context.Products.FindAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
             return NoContent();
-        }
+        }        
     }
 }
