@@ -3,11 +3,8 @@
     "",
     "\\C#",
     "\\C#\\API",
-    "\\C#\\API\\ProductAPI",
-    "\\C#\\CarRent",
-    "\\C#\\CarRent\\CarRent\\Entities",
-    "\\C#\\CarRent\\CarRent\\Services"
+    "\\C#\\API\\ProductAPI"
   ],
-  "SelectedNode": "\\C#\\API\\ProductAPI",
+  "SelectedNode": "\\C#\\API\\ProductAPI\\ProductAPI.sln",
   "PreviewInSolutionExplorer": false
 }
