@@ -1,6 +1,10 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using ProductAPI.Data;
+using ProductAPI.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,31 @@ builder.Services.AddDbContext<ProductApiDbContext>(options =>
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ProductApiDbContext>();
+
+var JwtSettingsSection = builder.Configuration.GetSection("JwtSettings");
+builder.Services.Configure<JwtSettings>(JwtSettingsSection);
+
+var jwtSettings = JwtSettingsSection.Get<JwtSettings>();
+var key = Encoding.ASCII.GetBytes(jwtSettings.Secret);
+
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = true;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        //ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience
+    };
+});
 
 var app = builder.Build();
 
