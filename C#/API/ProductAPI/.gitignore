@@ -266,3 +266,6 @@ appsettings.*.json
 
 # Secrets
 *.secrets.json
+
+*.slnx.sqlite
+.vs/slnx.sqlite
